@@ -44,6 +44,7 @@ Connexion PDO - PHP / MySQL, MariaDB, etc ...
     - [Documentation sur `execute`](#documentation-sur-execute)
     - Suite
 
+[Lien vers le pdf de théorie](Data/PDO.pdf)
 
 ## PDO : Présentation
 
