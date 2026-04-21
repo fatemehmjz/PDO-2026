@@ -1,19 +1,27 @@
 <?php
 
-// ma premiere connexion via pdo
+// controleur frontal
+// on charge les dependance 
+// on prend celui de développement
 
-$connexionPdo = new pdo(
-    dsn: "mysql:host=localhost; dbname=listepays; port=3307; charset=utf8mb4;", //dsn = data source name
-    username: "root", // le login
-    password: "", //le mot de passe
-);
+require_once 'config.dev.php';
 
-$requiest = $connexionPdo->query("
-    SELECT * FROM countries;
-");
 
-var_dump($connexionPdo,$requiest);
+// on essaie de se connecter à la base de données
+try {
+    $db = new PDO(
+        dsn:DB_CONNECT_TYPE.":host=",
+        username:DB_CONNECT_HOST,
+        password:DB_CONNECT_PWD,
 
-while($item = $requiest->fetch(PDO::FETCH_ASSOC)){
-    echo $item["nom"]." | ";
+    );
+} 
+// en cas d'erreur on 
+// on instencie une exception de type PDOException
+// une variable $e de type PDOException est créée et contient les informations de l'erreur
+catch (PDOException $e) {
+    //afficher le code erreur 
+    echo "Code d'erreur : ".$e->getCode() . "<br>";
+    // afficher le message d'erreur
+    echo "Message d'erreur : ".$e->getMessage() . "<br>";
 }
