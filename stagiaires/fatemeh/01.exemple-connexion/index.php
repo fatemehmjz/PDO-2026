@@ -12,5 +12,5 @@ $request = $connexionPDO->query(
 
 var_dump($connexionPDO,$request);
 while($item = $request->fetch(PDO::FETCH_ASSOC)){
-   echo $item["nom"]." | ";
+   echo $item["nomgit"]." | ";
 }
